@@ -1,12 +1,35 @@
 'use client'
 
-import LoginForm from "./components/dashboard/dashboard";
-import { Container } from "./styles";
+import Image from 'next/image';
+import Person from '../../../public/person-login.svg';
+import Logo from '../../../public/tropa-logo.svg';
+import Input from "./components/input/input";
+import { Container, ContainerDashboard, ContainerDashboardForm, DashboardContent, PersonImageWrapper, SectionRight, SectionRightContent, TitleDashboard } from "./styles";
 
 export default function Login() {
   return (
     <Container>
-      <LoginForm />
+      <ContainerDashboard>
+      <ContainerDashboardForm>
+        <DashboardContent>
+          <Image src={Logo} alt="Tropa Logo" width={161} height={25} />
+
+          <TitleDashboard>
+            Bem-vindo de volta <br />
+            <span>Entre com sua conta para acessar o painel.</span>
+          </TitleDashboard>
+          <Input />
+        </DashboardContent>
+      </ContainerDashboardForm>
+
+      <SectionRight>
+        <SectionRightContent>
+          <PersonImageWrapper>
+            <Image src={Person} alt="Person Illustration" width={357} height={315} />
+          </PersonImageWrapper>
+        </SectionRightContent>
+      </SectionRight>
+    </ContainerDashboard>
     </Container>
   )
 };

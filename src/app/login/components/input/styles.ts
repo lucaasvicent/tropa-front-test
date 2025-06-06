@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerInput = styled.div`
+export const ContainerInput = styled.form`
   display: flex;
   flex-direction: column;
   width: 18.68rem;
@@ -18,6 +18,13 @@ export const ContainerInput = styled.div`
     box-sizing: border-box; 
     padding-left: 12px; 
   }
+
+  p {
+  color: red;
+  font-size: 0.81rem;
+  margin: 0;
+  padding: 0;
+  }
 `;
 
 
@@ -26,6 +33,7 @@ export const InputGroup = styled.div`
   flex-direction: column;
   gap: 5px; 
   width: 100%;
+  max-height: 90%;
 `;
 
 export const TitleInput = styled.h2`
@@ -62,8 +70,8 @@ export const InputPasswordWrapper = styled.div`
 export const EyeIcon = styled.div`
   position: absolute;
   right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 30%;
+  transform: translateY(-10%);
   cursor: pointer;
   color: #657593;
 `;

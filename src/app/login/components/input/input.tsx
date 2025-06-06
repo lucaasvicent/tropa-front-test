@@ -1,42 +1,103 @@
-import {
-  ContainerInput,
-  InputGroup,
-  InputForm,
-  TitleInput,
-  InputPasswordWrapper,
-  EyeIcon
-} from "./styles";
+'use client';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from 'next/navigation';
 import { Eye, EyeClosed } from "phosphor-react";
 import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { LoginSchema } from "../../schema/schema";
+import {
+  ContainerInput,
+  EyeIcon,
+  InputForm,
+  InputGroup,
+  InputPasswordWrapper,
+  TitleInput
+} from "./styles";
+
 
 export default function Input() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const { handleSubmit, control, formState: { errors } } = useForm({
+    resolver: zodResolver(LoginSchema),
+    defaultValues: {
+      email: "",
+      password: ""
+    }
+  });
+
+
 
   const togglePassword = () => {
     setShowPassword(prev => !prev);
   };
 
+  const mockedUser = {
+    email: "lucasdev08@hotmail.com",
+    password: "123456"
+  };
+
+  const onSubmit = (data: { email: string; password: string }) => {
+    const isValidUser =
+      data.email === mockedUser.email &&
+      data.password === mockedUser.password;
+
+    if (isValidUser) {
+      console.log("Login realizado com sucesso!");
+      toast.success('Sucesso!');
+      setTimeout(() => {
+        router.push("/dashboard");
+      }, 2500);
+    } else {
+      toast.error('Usuário ou senha inválidos');
+      console.error("Usuário ou senha inválidos");
+    }
+  };
+
   return (
-    <ContainerInput>
+    <ContainerInput onSubmit={handleSubmit(onSubmit)}>
       <InputGroup>
         <TitleInput>E-mail</TitleInput>
-        <InputForm type="email" placeholder="E-mail" />
+        <Controller
+          name="email"
+          control={control}
+          render={({ field }) => (
+            <InputForm type="email" placeholder="E-mail" {...field} />
+          )}
+        />
+        {errors.email && <p>{errors.email.message}</p>}
       </InputGroup>
 
       <InputGroup>
         <TitleInput>Senha</TitleInput>
-        <InputPasswordWrapper>
-          <InputForm
-            type={showPassword ? "password" : "text"}
-            placeholder="Senha"
-          />
-          <EyeIcon onClick={togglePassword}>
-            {showPassword ? <EyeClosed size={24} color='#CC6237' /> : <Eye size={24} color='#CC6237' />}
-          </EyeIcon>
-        </InputPasswordWrapper>
+        <Controller
+          name="password"
+          control={control}
+          render={({ field }) => (
+            <InputPasswordWrapper>
+              <InputForm
+                type={showPassword ? "text" : "password"}
+                placeholder="Senha"
+                {...field}
+              />
+              <EyeIcon onClick={togglePassword}>
+                {showPassword ? (
+                  <EyeClosed size={24} color="#CC6237" />
+                ) : (
+                  <Eye size={24} color="#CC6237" />
+                )}
+              </EyeIcon>
+            </InputPasswordWrapper>
+          )}
+        />
+        {errors.password && <p>{errors.password.message}</p>}
       </InputGroup>
 
-      <button type="submit">Entrar</button>
+      <button type="submit">
+        Entrar
+      </button>
     </ContainerInput>
   );
 }
+
