@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: var(--background);
 `;
 
@@ -22,6 +22,11 @@ export const ContainerDashboard = styled.div`
   align-items: center;
   margin: 1.87rem;
   justify-content: space-between;
+
+   @media (max-width: 768px) {
+    width: 21.18rem;
+    justify-content: center;
+  }
 `;
 
 export const ContainerDashboardForm = styled.div`
@@ -46,11 +51,13 @@ export const SectionRight = styled.div`
   display: flex;
   flex-direction: column;
   width: 24.84rem;
-  // height: 29.87rem;
   height: 100%;
   justify-content: end;
   align-items: end;
-  // background: blue;
+
+  @media (max-width: 768px) {
+  display: none;
+}
 `;
 
 export const SectionRightContent = styled.div`

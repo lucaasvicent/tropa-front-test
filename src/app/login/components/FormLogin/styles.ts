@@ -20,10 +20,10 @@ export const ContainerInput = styled.form`
   }
 
   p {
-  color: red;
-  font-size: 0.81rem;
-  margin: 0;
-  padding: 0;
+    color: red;
+    font-size: 0.81rem;
+    margin: 0;
+    padding: 0;
   }
 `;
 

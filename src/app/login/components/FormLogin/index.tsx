@@ -16,7 +16,7 @@ import {
 } from "./styles";
 
 
-export default function Input() {
+export default function FormLogin() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const { handleSubmit, control, formState: { errors } } = useForm({
@@ -26,8 +26,6 @@ export default function Input() {
       password: ""
     }
   });
-
-
 
   const togglePassword = () => {
     setShowPassword(prev => !prev);
@@ -47,11 +45,10 @@ export default function Input() {
       console.log("Login realizado com sucesso!");
       toast.success('Sucesso!');
       setTimeout(() => {
-        router.push("/dashboard");
+        router.push("/event");
       }, 2500);
     } else {
       toast.error('Usuário ou senha inválidos');
-      console.error("Usuário ou senha inválidos");
     }
   };
 
