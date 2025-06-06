@@ -27,9 +27,7 @@ export default function LoginForm() {
             Bem-vindo de volta <br />
             <span>Entre com sua conta para acessar o painel.</span>
           </TitleDashboard>
-
           <Input />
-
         </DashboardContent>
       </ContainerDashboardForm>
 

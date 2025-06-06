@@ -2,10 +2,20 @@ import {
   ContainerInput,
   InputGroup,
   InputForm,
-  TitleInput
+  TitleInput,
+  InputPasswordWrapper,
+  EyeIcon
 } from "./styles";
+import { Eye, EyeClosed } from "phosphor-react";
+import { useState } from "react";
 
 export default function Input() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePassword = () => {
+    setShowPassword(prev => !prev);
+  };
+
   return (
     <ContainerInput>
       <InputGroup>
@@ -15,7 +25,15 @@ export default function Input() {
 
       <InputGroup>
         <TitleInput>Senha</TitleInput>
-        <InputForm type="password" placeholder="Senha" />
+        <InputPasswordWrapper>
+          <InputForm
+            type={showPassword ? "password" : "text"}
+            placeholder="Senha"
+          />
+          <EyeIcon onClick={togglePassword}>
+            {showPassword ? <EyeClosed size={24} color='#CC6237' /> : <Eye size={24} color='#CC6237' />}
+          </EyeIcon>
+        </InputPasswordWrapper>
       </InputGroup>
 
       <button type="submit">Entrar</button>

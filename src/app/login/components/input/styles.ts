@@ -54,3 +54,17 @@ export const InputForm = styled.input`
   }
 `;
 
+export const InputPasswordWrapper = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+export const EyeIcon = styled.div`
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #657593;
+`;
+
