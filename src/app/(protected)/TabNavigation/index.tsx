@@ -94,8 +94,8 @@ export default function TabNavigation() {
                 className="avatar"
               />
               <div>
-                <NavTextFooter>Kaique Steck</NavTextFooter>
-                <FunctionText>Administrador</FunctionText>
+                <NavTextFooter>Lucas Vicente</NavTextFooter>
+                <FunctionText>Programador</FunctionText>
               </div>
             </div>
 

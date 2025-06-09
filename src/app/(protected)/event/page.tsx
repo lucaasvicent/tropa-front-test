@@ -128,8 +128,8 @@ export default function EventsScreen() {
                       className="avatar"
                     />
                     <div>
-                      <TextModal>Kaique Steck</TextModal>
-                      <FunctionTextModal>Administrador</FunctionTextModal>
+                      <TextModal>Lucas Vicente</TextModal>
+                      <FunctionTextModal>Programador</FunctionTextModal>
                     </div>
                   </div>
 
@@ -153,7 +153,7 @@ export default function EventsScreen() {
 
       <HeaderContainer>
         <TextHeader>
-          Bem vindo de volta, <span>Kaique Steck</span>
+          Bem vindo de volta, <span>Lucas Vicente</span>
         </TextHeader>
         <TitleHeader>Todos eventos</TitleHeader>
       </HeaderContainer>
