@@ -23,6 +23,7 @@ import {
 } from "./styles";
 import Logo from "/public/tropa-logo.svg";
 import Picture from "/public/picture-login.svg";
+import { toast } from "react-toastify";
 
 export default function TabNavigation() {
   const [selectedItem, setSelectedItem] = useState<string>("event");
@@ -95,7 +96,7 @@ export default function TabNavigation() {
               />
               <div>
                 <NavTextFooter>Lucas Vicente</NavTextFooter>
-                <FunctionText>Programador</FunctionText>
+                <FunctionText>Administrador</FunctionText>
               </div>
             </div>
 
@@ -104,9 +105,18 @@ export default function TabNavigation() {
                 <User size={16} />
                 <span>Alterar dados</span>
               </div>
-              <div className="footer-action-item">
+              <div
+                className="footer-action-item"
+                onClick={() => {
+                  toast.success("Até breve!");
+                  setTimeout(() => {
+                    window.location.href = "/login";
+                  }, 1500);
+                }}
+                style={{ cursor: "pointer" }}
+              >
                 <Power size={16} />
-                <Link href="/login">Sair</Link>
+                <span>Sair</span>
               </div>
             </div>
           </FooterNav>

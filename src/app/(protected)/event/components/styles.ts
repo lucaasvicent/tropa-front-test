@@ -1,6 +1,10 @@
 import { MagnifyingGlass } from "phosphor-react";
 import styled from "styled-components";
 
+interface StatusDotProps {
+  $status: "Ativo" | "Inativo";
+}
+
 export const Container = styled.div`
   width: 93%;
   background: var(--white-100);
@@ -123,17 +127,17 @@ export const TableCell = styled.td`
   }
 `;
 
-export const StatusDot = styled.span`
+export const StatusDot = styled.span<StatusDotProps>`
   display: inline-block;
   width: 10px;
   height: 10px;
-  background-color: #2cd03d;
   border-radius: 50%;
   margin-right: 0.5rem;
+  background-color: ${({ $status }) => ($status === "Ativo" ? "#2cd03d" : "#d02c2c")};
 
   @media (max-width: 786px) {
     margin-right: 0;
-}
+  }
 `;
 
 export const Pagination = styled.div`

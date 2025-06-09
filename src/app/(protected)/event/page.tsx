@@ -23,6 +23,7 @@ import Picture from "/public/picture-login.svg";
 import Logo from "/public/tropa-logo.svg";
 
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 
 export default function EventsScreen() {
@@ -96,7 +97,7 @@ export default function EventsScreen() {
                       />
                       <Link href="/event">Eventos</Link>
                     </NavItemModal>
-                    
+
                     <NavItemModal
                       selected={selectedItem === "equipes"}
                       onClick={() => handleSelect("equipes")}
@@ -132,7 +133,7 @@ export default function EventsScreen() {
                     />
                     <div>
                       <TextModal>Lucas Vicente</TextModal>
-                      <FunctionTextModal>Programador</FunctionTextModal>
+                      <FunctionTextModal>Administrador</FunctionTextModal>
                     </div>
                   </div>
 
@@ -141,9 +142,18 @@ export default function EventsScreen() {
                       <User size={16} />
                       <span>Alterar dados</span>
                     </div>
-                    <div className="footer-action-item">
+                    <div
+                      className="footer-action-item"
+                      onClick={() => {
+                        toast.success("Até breve!");
+                        setTimeout(() => {
+                          window.location.href = "/login";
+                        }, 1500);
+                      }}
+                      style={{ cursor: "pointer" }}
+                    >
                       <Power size={16} />
-                      <Link href="/login">Sair</Link>
+                      <span>Sair</span>
                     </div>
                   </div>
                 </ContainerModal>

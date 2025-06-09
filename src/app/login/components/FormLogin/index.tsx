@@ -80,9 +80,10 @@ export default function FormLogin() {
               />
               <EyeIcon onClick={togglePassword}>
                 {showPassword ? (
-                  <EyeClosed size={24} color="#CC6237" />
-                ) : (
                   <Eye size={24} color="#CC6237" />
+
+                ) : (
+                  <EyeClosed size={24} color="#CC6237" />
                 )}
               </EyeIcon>
             </InputPasswordWrapper>

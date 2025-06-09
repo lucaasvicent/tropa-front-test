@@ -28,7 +28,7 @@ interface EventData {
 
 const mockData: EventData[] = [
   { name: "Clube do Laço Coração Pantaneiro", teams: 10, status: "Ativo", date: "09 a 11 de Junho" },
-  { name: "Festival de Verão Campo Grande", teams: 8, status: "Inativo", date: "15 a 17 de Julho" },
+  { name: "Clube do Laço Coração Pantaneiro", teams: 10, status: "Ativo", date: "09 a 11 de Junho" },
   { name: "ExpoAgro 2025", teams: 12, status: "Ativo", date: "01 a 03 de Agosto" },
   { name: "Corrida da Independência", teams: 6, status: "Inativo", date: "05 de Setembro" },
   { name: "Feira Tecnológica MS", teams: 15, status: "Ativo", date: "10 a 12 de Outubro" },
@@ -119,7 +119,7 @@ export default function EventDashboard() {
                 <TableCell>{event.name}</TableCell>
                 <TableCell>{event.teams}</TableCell>
                 <TableCell>
-                  <StatusDot /> {event.status}
+                  <StatusDot $status={event.status} /> {event.status}
                 </TableCell>
                 <TableCell>{event.date}</TableCell>
                 <TableCell style={{ position: "relative" }}>
