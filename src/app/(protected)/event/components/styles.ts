@@ -11,10 +11,24 @@ export const Container = styled.div`
   height: 15.06rem;
   align-items: center;
   font-family: Roboto, sans-serif;
+
+  @media (max-width: 786px) {
+    width: 85%;
+    display: block ;
+    height: 33%;
+
+    .menu-toggle {
+      display: none;
+    }
+  }
 `;
 
 export const ComponentContent = styled.div`
   width: 100%;
+
+  @media (max-width: 786px) {
+    width: 100%;
+  }
 `;
 
 export const Header = styled.div`
@@ -23,11 +37,19 @@ export const Header = styled.div`
   align-items: center;
   margin-bottom: 1rem;
   gap: 4rem;
+
+  @media (max-width: 786px) {
+    justify-content: space-between;
+} 
 `;
 
 export const SearchContainer = styled.div`
   position: relative;
   width: 200px;
+
+  @media (max-width: 786px) {
+    width: 30%;
+} 
 `;
 
 export const SearchInput = styled.input`
@@ -35,6 +57,12 @@ export const SearchInput = styled.input`
   border: 1px solid #ccc;
   border-radius: 1rem;
   width: 100%;
+
+  &:focus {
+    outline: none;
+    border-color: none;
+    box-shadow: 0 0 0 2px #d05c2e;
+  }
 `;
 
 export const SearchIcon = styled(MagnifyingGlass)`
@@ -74,12 +102,25 @@ export const TableHeader = styled.th`
   text-align: left;
   padding: 0.75rem 0;
   color: var(--orange-200);
+
+  @media (max-width: 786px) {
+    font-size: 0.85rem;
+    width: 35%;
+    padding: none;
+    text-align: center;
+}
 `;
 
 export const TableCell = styled.td`
   padding: 0.75rem 0;
   vertical-align: middle;
   color: var(--gray-100);
+  
+  @media (max-width: 786px) {
+    padding: 0.5rem 0;
+    font-size: 0.75rem;
+    text-align: center;
+  }
 `;
 
 export const StatusDot = styled.span`
@@ -89,6 +130,10 @@ export const StatusDot = styled.span`
   background-color: #2cd03d;
   border-radius: 50%;
   margin-right: 0.5rem;
+
+  @media (max-width: 786px) {
+    margin-right: 0;
+}
 `;
 
 export const Pagination = styled.div`
@@ -110,4 +155,85 @@ export const Pagination = styled.div`
       border: none;
     }
   }
+`;
+
+export const ModalOptions = styled.div`
+  position: absolute;
+  top: 1.5rem;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  padding: 0.5rem;
+`;
+
+export const ModalButton = styled.button`
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  text-align: left;
+  cursor: not-allowed;
+  color: #999;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #f4f4f4;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+`;
+
+
+export const SkeletonBox = styled.div`
+  background: #e0e0e0;
+  border-radius: 0.5rem;
+  animation: pulse 1.5s infinite ease-in-out;
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+`;
+
+export const SkeletonHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-bottom: 1rem;
+`;
+
+export const SkeletonSearch = styled(SkeletonBox)`
+  height: 2.5rem;
+  width: 200px;
+`;
+
+export const SkeletonButton = styled(SkeletonBox)`
+  height: 2.5rem;
+  width: 120px;
+`;
+
+export const SkeletonRow = styled(SkeletonBox)`
+  height: 1.25rem;
+  margin: 0.75rem 0;
+  width: 100%;
+`;
+
+export const SkeletonPagination = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+`;
+
+export const SkeletonPageButton = styled(SkeletonBox)`
+  height: 2rem;
+  width: 2rem;
+  border-radius: 100px;
 `;

@@ -1,12 +1,37 @@
 'use client'
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Person from '../../../public/person-login.svg';
 import Logo from '../../../public/tropa-logo.svg';
 import FormLogin from "./components/FormLogin";
-import { Container, ContainerDashboard, ContainerDashboardForm, DashboardContent, PersonImageWrapper, SectionRight, SectionRightContent, TitleDashboard } from "./styles";
+import {
+  Container,
+  ContainerDashboard,
+  ContainerDashboardForm,
+  DashboardContent,
+  PersonImageWrapper,
+  SectionRight,
+  SectionRightContent,
+  TitleDashboard
+} from "./styles";
+import LoginSkeleton from './components/Skeleton/LoginSkeleton';
 
 export default function Login() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500); 
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoginSkeleton />;
+  }
+
   return (
     <Container>
       <ContainerDashboard>
@@ -31,5 +56,5 @@ export default function Login() {
         </SectionRight>
       </ContainerDashboard>
     </Container>
-  )
-};
+  );
+}

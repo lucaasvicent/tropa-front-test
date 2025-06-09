@@ -47,7 +47,7 @@ export default function TabNavigation() {
                 size={16}
                 color={selectedItem === "dashboard" ? "#FFFFFF" : "#252525"}
               />
-              <Link href="/dashboard">Dashboard</Link>
+              <Link href="#">Dashboard</Link>
             </NavItem>
 
             <NavItem
@@ -69,7 +69,7 @@ export default function TabNavigation() {
                 size={16}
                 color={selectedItem === "equipes" ? "#fff" : "#252525"}
               />
-              <Link href="/squad">Equipes</Link>
+              <Link href="#">Equipes</Link>
             </NavItem>
 
             <NavItem
@@ -80,7 +80,7 @@ export default function TabNavigation() {
                 size={16}
                 color={selectedItem === "inscricoes" ? "#fff" : "#252525"}
               />
-              <Link href="/inscricoes">Inscrições</Link>
+              <Link href="#">Inscrições</Link>
             </NavItem>
           </nav>
 

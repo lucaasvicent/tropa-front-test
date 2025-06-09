@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from "react";
 import TabNavigation from "./TabNavigation";
 
 export default function ProtectedLayout({
@@ -5,6 +8,32 @@ export default function ProtectedLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+  const isMobile = useBreakpoint();
+
+  function useBreakpoint() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
+      };
+
+      handleResize();
+      window.addEventListener("resize", handleResize);
+
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return isMobile;
+  }
+
+  if (isMobile) {
+    return <>
+    {children}
+    </>;
+  }
+
   return (
     <div
       style={{
