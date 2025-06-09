@@ -101,13 +101,13 @@ export const FooterNav = styled.div`
     span {
       font-family: Roboto, sans-serif;
       font-size: 0.875rem;
-      font-weight: 500;
+      font-weight: bold;;
     }
 
     a {
       font-family: Roboto, sans-serif;
       font-size: 0.875rem;
-      font-weight: 500;
+      font-weight: bold;;
       color: var(--black-100);
       text-decoration: none;
     }
@@ -117,7 +117,7 @@ export const FooterNav = styled.div`
 export const NavTextFooter = styled.p`
   font-family: Roboto, sans-serif;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1.2;
   color: var(--black-100);
   margin: 0;

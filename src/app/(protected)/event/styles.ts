@@ -123,7 +123,7 @@ export const NavItemModal = styled.div<NavItemProps>`
   a {
     font-family: Roboto, sans-serif;
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: bold;
     line-height: 1;
     vertical-align: middle;
     letter-spacing: 0%;
@@ -165,13 +165,13 @@ export const ContainerModal = styled.div`
     span {
       font-family: Roboto, sans-serif;
       font-size: 0.875rem;
-      font-weight: 500;
+      font-weight: bold;
     }
 
     a {
       font-family: Roboto, sans-serif;
       font-size: 0.875rem;
-      font-weight: 500;
+      font-weight: bold;
       color: var(--black-100);
       text-decoration: none;
     }
@@ -181,7 +181,7 @@ export const ContainerModal = styled.div`
 export const TextModal = styled.p`
   font-family: Roboto, sans-serif;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1.2;
   color: var(--black-100);
   margin: 0;

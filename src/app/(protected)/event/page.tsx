@@ -81,7 +81,7 @@ export default function EventsScreen() {
                       onClick={() => handleSelect("dashboard")}
                     >
                       <SquaresFour
-                        size={16}
+                        size={18}
                         color={selectedItem === "dashboard" ? "#FFFFFF" : "#252525"}
                       />
                       <Link href="/dashboard">Dashboard</Link>
@@ -92,7 +92,7 @@ export default function EventsScreen() {
                       onClick={() => handleSelect("event")}
                     >
                       <Calendar
-                        size={16}
+                        size={18}
                         color={selectedItem === "event" ? "#FFFFFF" : "#252525"}
                       />
                       <Link href="/event">Eventos</Link>
@@ -103,7 +103,7 @@ export default function EventsScreen() {
                       onClick={() => handleSelect("equipes")}
                     >
                       <UsersThree
-                        size={16}
+                        size={18}
                         color={selectedItem === "equipes" ? "#fff" : "#252525"}
                       />
                       <Link href="/squad">Equipes</Link>
@@ -114,7 +114,7 @@ export default function EventsScreen() {
                       onClick={() => handleSelect("inscricoes")}
                     >
                       <Users
-                        size={16}
+                        size={18}
                         color={selectedItem === "inscricoes" ? "#fff" : "#252525"}
                       />
                       <Link href="/inscricoes">Inscrições</Link>
