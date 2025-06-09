@@ -20,6 +20,8 @@ import {
 import { Calendar, List, Power, SquaresFour, User, Users, UsersThree, X } from "phosphor-react";
 import Image from "next/image";
 import Picture from "/public/picture-login.svg";
+import Logo from "/public/tropa-logo.svg";
+
 import Link from "next/link";
 
 
@@ -71,6 +73,7 @@ export default function EventsScreen() {
               <SidebarOverlay onClick={toggleSidebar} />
               <Sidebar isOpen={isSidebarOpen}>
                 <NavContentModal>
+                  <Image src={Logo} alt="Tropa Logo" width={161} height={25} />
                   <nav>
                     <NavItemModal
                       selected={selectedItem === "dashboard"}
