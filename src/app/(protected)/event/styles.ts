@@ -27,7 +27,7 @@ export const TextHeader = styled.p`
   color: var(--gray-100);
 
   span {
-    font-weight: 500;
+    font-weight: bold;
     color: var(--black-100);
   }
 `;

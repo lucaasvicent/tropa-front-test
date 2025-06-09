@@ -49,7 +49,7 @@ export const NavItem = styled.div<NavItemProps>`
   a {
     font-family: Roboto, sans-serif;
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1;
     vertical-align: middle;
     letter-spacing: 0%;
