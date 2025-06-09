@@ -103,6 +103,14 @@ export const FooterNav = styled.div`
       font-size: 0.875rem;
       font-weight: 500;
     }
+
+    a {
+      font-family: Roboto, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--black-100);
+      text-decoration: none;
+    }
   }
 `;
 

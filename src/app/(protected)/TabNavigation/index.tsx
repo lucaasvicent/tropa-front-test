@@ -94,8 +94,8 @@ export default function TabNavigation() {
                 className="avatar"
               />
               <div>
-                <NavTextFooter>Lucas Vicente</NavTextFooter>
-                <FunctionText>Desenvolvedor</FunctionText>
+                <NavTextFooter>Kaique Steck</NavTextFooter>
+                <FunctionText>Administrador</FunctionText>
               </div>
             </div>
 
@@ -106,7 +106,7 @@ export default function TabNavigation() {
               </div>
               <div className="footer-action-item">
                 <Power size={16} />
-                <span>Sair</span>
+                <Link href="/login">Sair</Link>
               </div>
             </div>
           </FooterNav>
