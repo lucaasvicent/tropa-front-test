@@ -16,6 +16,7 @@ import {
   TableCell,
   TableHeader,
   TableRow,
+  ClearButton,
 } from "./styles";
 import { DotsThreeVerticalIcon, PlusIcon } from "@phosphor-icons/react";
 import { toast } from "react-toastify";
@@ -69,6 +70,10 @@ export default function EventDashboard() {
   }, []);
 
   useEffect(() => {
+    setCurrentPage(1); 
+  }, [search]);
+
+  useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       const target = event.target as Node;
       if (
@@ -100,11 +105,21 @@ export default function EventDashboard() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
+            {search && (
+              <ClearButton onClick={() => setSearch("")} aria-label="Limpar busca">
+                ×
+              </ClearButton>
+            )}
           </SearchContainer>
-          <InsertButton onClick={() => {
-            toast.warning("Ops! Ação indisponível");
-          }}
-            style={{ cursor: "pointer" }}><PlusIcon size={16} weight="bold" /> Inserir novo</InsertButton>
+
+          <InsertButton
+            onClick={() => {
+              toast.warning("Ops! Ação indisponível");
+            }}
+            style={{ cursor: "pointer" }}
+          >
+            <PlusIcon size={16} weight="bold" /> Inserir novo
+          </InsertButton>
         </Header>
 
         <Table>
@@ -130,7 +145,7 @@ export default function EventDashboard() {
                   <button
                     ref={buttonRef}
                     onClick={() => setModalIndex(modalIndex === index ? null : index)}
-                    style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+                    style={{ background: "none", border: "none", cursor: "pointer" }}
                   >
                     <DotsThreeVerticalIcon />
                   </button>
@@ -147,7 +162,9 @@ export default function EventDashboard() {
         </Table>
 
         <Pagination>
-          {currentPage > 1 && <button onClick={() => handlePageChange(currentPage - 1)}>Anterior</button>}
+          {currentPage > 1 && (
+            <button onClick={() => handlePageChange(currentPage - 1)}>Anterior</button>
+          )}
           {Array.from({ length: pageCount }, (_, i) => (
             <button
               key={i}
@@ -157,7 +174,9 @@ export default function EventDashboard() {
               {i + 1}
             </button>
           ))}
-          {currentPage < pageCount && <button onClick={() => handlePageChange(currentPage + 1)}>Próxima</button>}
+          {currentPage < pageCount && (
+            <button onClick={() => handlePageChange(currentPage + 1)}>Próxima</button>
+          )}
         </Pagination>
       </ComponentContent>
     </Container>

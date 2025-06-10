@@ -58,14 +58,15 @@ export const SearchContainer = styled.div`
 
 export const SearchInput = styled.input`
   padding: 0.5rem 1rem 0.5rem 2.25rem; 
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 1rem;
   width: 100%;
+  background: var(--white-200);
 
   &:focus {
     outline: none;
     border-color: none;
-    box-shadow: 0 0 0 2px #d05c2e;
+    box-shadow: 0 0 0 2px var(--orange-300);
   }
 `;
 
@@ -74,12 +75,12 @@ export const SearchIcon = styled(MagnifyingGlassIcon)`
   top: 50%;
   left: 0.75rem;
   transform: translateY(-50%);
-  color: #999;
+  color: var(--gray-200);
 `;
 
 
 export const InsertButton = styled.button`
-  background-color: #d05c2e;
+  background-color: var(--orange-300);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
@@ -92,6 +93,23 @@ export const InsertButton = styled.button`
   gap: 0.5rem;
 `;
 
+export const ClearButton = styled.button`
+  position: absolute;
+  top: 50%;
+  right: -2.5rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--gray-200);
+  padding: 0;
+
+  &:hover {
+    color: var(--orange-300);
+  }
+`;
+
 export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
@@ -99,7 +117,7 @@ export const Table = styled.table`
 `;
 
 export const TableRow = styled.tr`
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--orange-200);
 `;
 
 export const TableHeader = styled.th`
@@ -146,15 +164,15 @@ export const Pagination = styled.div`
   margin-top: 1rem;
 
   button {
-    background: #fff;
-    border: 1px solid #ccc;
+    background: var(--white-200);
+    border: var(--white-200);
     margin-left: 0.25rem;
     padding: 0.5rem 1rem;
     border-radius: 100px;
     cursor: pointer;
 
     &.active {
-      background: #d05c2e;
+      background: var(--orange-300);
       color: white;
       border: none;
     }
@@ -165,8 +183,8 @@ export const ModalOptions = styled.div`
   position: absolute;
   top: 1.5rem;
   right: 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: var(--white-100);
+  border: 1px solid var(--white-200);
   border-radius: 0.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -181,11 +199,11 @@ export const ModalButton = styled.button`
   padding: 0.5rem;
   text-align: left;
   cursor: not-allowed;
-  color: #999;
+  color: var(--gray-100);
   font-weight: bold;
 
   &:hover {
-    background-color: #f4f4f4;
+    background-color: var(--white-200);
   }
 
   &:disabled {
@@ -196,7 +214,7 @@ export const ModalButton = styled.button`
 
 
 export const SkeletonBox = styled.div`
-  background: #e0e0e0;
+  background: var(--gray-90);
   border-radius: 0.5rem;
   animation: pulse 1.5s infinite ease-in-out;
   @keyframes pulse {
