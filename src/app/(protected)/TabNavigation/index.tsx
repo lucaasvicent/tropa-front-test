@@ -1,16 +1,8 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Calendar,
-  Power,
-  SquaresFour,
-  User,
-  Users,
-  UsersThree,
-} from "phosphor-react";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import {
   Container,
   FooterNav,
@@ -24,13 +16,30 @@ import {
 import Logo from "/public/tropa-logo.svg";
 import Picture from "/public/picture-login.svg";
 import { toast } from "react-toastify";
+import {
+  CalendarIcon,
+  PowerIcon,
+  SquaresFourIcon,
+  UserIcon,
+  UsersIcon,
+  UsersThreeIcon,
+} from "@phosphor-icons/react";
+import SidebarSkeleton from "./components/Skeleton";
 
 export default function TabNavigation() {
   const [selectedItem, setSelectedItem] = useState<string>("event");
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleSelect = (item: string) => {
     setSelectedItem(item);
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsLoading(false), 100);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (isLoading) return <SidebarSkeleton />;
 
   return (
     <Container>
@@ -44,18 +53,18 @@ export default function TabNavigation() {
               selected={selectedItem === "dashboard"}
               onClick={() => handleSelect("dashboard")}
             >
-              <SquaresFour
+              <SquaresFourIcon
                 size={20}
                 color={selectedItem === "dashboard" ? "#FFFFFF" : "#252525"}
               />
-              <Link href="#">Dashboard</Link>
+              <Link href="/dashboard">Dashboard</Link>
             </NavItem>
 
             <NavItem
               selected={selectedItem === "event"}
               onClick={() => handleSelect("event")}
             >
-              <Calendar
+              <CalendarIcon
                 size={20}
                 color={selectedItem === "event" ? "#FFFFFF" : "#252525"}
               />
@@ -66,22 +75,22 @@ export default function TabNavigation() {
               selected={selectedItem === "equipes"}
               onClick={() => handleSelect("equipes")}
             >
-              <UsersThree
+              <UsersThreeIcon
                 size={20}
                 color={selectedItem === "equipes" ? "#fff" : "#252525"}
               />
-              <Link href="#">Equipes</Link>
+              <Link href="/teams">Equipes</Link>
             </NavItem>
 
             <NavItem
               selected={selectedItem === "inscricoes"}
               onClick={() => handleSelect("inscricoes")}
             >
-              <Users
+              <UsersIcon
                 size={20}
                 color={selectedItem === "inscricoes" ? "#fff" : "#252525"}
               />
-              <Link href="#">Inscrições</Link>
+              <Link href="/registration">Inscrições</Link>
             </NavItem>
           </nav>
 
@@ -102,8 +111,13 @@ export default function TabNavigation() {
 
             <div className="footer-actions">
               <div className="footer-action-item">
-                <User size={16} />
-                <span>Alterar dados</span>
+                <UserIcon size={16} />
+                <span onClick={() => {
+                  setTimeout(() => {
+                    window.location.href = "/change-data";
+                  }, 1500);
+                }}
+                  style={{ cursor: "pointer" }}>Alterar dados</span>
               </div>
               <div
                 className="footer-action-item"
@@ -115,7 +129,7 @@ export default function TabNavigation() {
                 }}
                 style={{ cursor: "pointer" }}
               >
-                <Power size={16} />
+                <PowerIcon size={16} />
                 <span>Sair</span>
               </div>
             </div>

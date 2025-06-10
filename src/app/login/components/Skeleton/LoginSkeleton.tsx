@@ -20,6 +20,7 @@ const SkeletonCard = styled.div`
   padding: 1rem;
   box-shadow: 0px 100px 200px rgba(0, 0, 0, 0.25);
   justify-content: space-between;
+  align-items: center;
 
   @media (max-width: 768px) {
     width: 21.18rem;
@@ -93,8 +94,8 @@ const SkeletonImageSection = styled.div`
 `;
 
 const SkeletonImage = styled(SkeletonBase)`
-  width: 357px;
-  height: 315px;
+  width: 557px;
+  height: 100%;
   border-radius: 20px;
 `;
 

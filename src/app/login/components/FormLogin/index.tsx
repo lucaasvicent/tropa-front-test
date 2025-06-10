@@ -1,7 +1,6 @@
 'use client';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from 'next/navigation';
-import { Eye, EyeClosed } from "phosphor-react";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -14,6 +13,7 @@ import {
   InputPasswordWrapper,
   TitleInput
 } from "./styles";
+import { Eye, EyeClosedIcon } from "@phosphor-icons/react";
 
 
 export default function FormLogin() {
@@ -81,9 +81,8 @@ export default function FormLogin() {
               <EyeIcon onClick={togglePassword}>
                 {showPassword ? (
                   <Eye size={24} color="#CC6237" />
-
                 ) : (
-                  <EyeClosed size={24} color="#CC6237" />
+                  <EyeClosedIcon size={24} color="#CC6237" />
                 )}
               </EyeIcon>
             </InputPasswordWrapper>

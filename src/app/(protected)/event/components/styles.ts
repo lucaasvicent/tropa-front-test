@@ -1,4 +1,4 @@
-import { MagnifyingGlass } from "phosphor-react";
+import { MagnifyingGlassIcon } from "@phosphor-icons/react";
 import styled from "styled-components";
 
 interface StatusDotProps {
@@ -69,7 +69,7 @@ export const SearchInput = styled.input`
   }
 `;
 
-export const SearchIcon = styled(MagnifyingGlass)`
+export const SearchIcon = styled(MagnifyingGlassIcon)`
   position: absolute;
   top: 50%;
   left: 0.75rem;

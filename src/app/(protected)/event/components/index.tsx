@@ -1,4 +1,3 @@
-import { DotsThreeVertical, Plus } from "phosphor-react";
 import { useEffect, useRef, useState } from "react";
 import EventDashboardSkeleton from "./EventDashboardSkeleton";
 import {
@@ -18,6 +17,8 @@ import {
   TableHeader,
   TableRow,
 } from "./styles";
+import { DotsThreeVerticalIcon, PlusIcon } from "@phosphor-icons/react";
+import { toast } from "react-toastify";
 
 interface EventData {
   name: string;
@@ -28,7 +29,7 @@ interface EventData {
 
 const mockData: EventData[] = [
   { name: "Clube do Laço Coração Pantaneiro", teams: 10, status: "Ativo", date: "09 a 11 de Junho" },
-  { name: "Clube do Laço Coração Pantaneiro", teams: 10, status: "Ativo", date: "09 a 11 de Junho" },
+  { name: "BGS", teams: 8, status: "Ativo", date: "08 a 11 de Agosto" },
   { name: "ExpoAgro 2025", teams: 12, status: "Ativo", date: "01 a 03 de Agosto" },
   { name: "Corrida da Independência", teams: 6, status: "Inativo", date: "05 de Setembro" },
   { name: "Feira Tecnológica MS", teams: 15, status: "Ativo", date: "10 a 12 de Outubro" },
@@ -100,7 +101,10 @@ export default function EventDashboard() {
               onChange={(e) => setSearch(e.target.value)}
             />
           </SearchContainer>
-          <InsertButton><Plus size={16} weight="bold" /> Inserir novo</InsertButton>
+          <InsertButton onClick={() => {
+            toast.warning("Ops! Ação indisponível");
+          }}
+            style={{ cursor: "pointer" }}><PlusIcon size={16} weight="bold" /> Inserir novo</InsertButton>
         </Header>
 
         <Table>
@@ -128,7 +132,7 @@ export default function EventDashboard() {
                     onClick={() => setModalIndex(modalIndex === index ? null : index)}
                     style={{ background: 'none', border: 'none', cursor: 'pointer' }}
                   >
-                    <DotsThreeVertical />
+                    <DotsThreeVerticalIcon />
                   </button>
                   {modalIndex === index && (
                     <ModalOptions ref={modalRef}>

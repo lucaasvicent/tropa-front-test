@@ -17,13 +17,13 @@ import {
   NavContentModal,
   NavItemModal,
 } from "./styles";
-import { Calendar, List, Power, SquaresFour, User, Users, UsersThree, X } from "phosphor-react";
 import Image from "next/image";
 import Picture from "/public/picture-login.svg";
 import Logo from "/public/tropa-logo.svg";
 
 import Link from "next/link";
 import { toast } from "react-toastify";
+import { CalendarIcon, ListIcon, PowerIcon, SquaresFourIcon, UserIcon, UsersIcon, UsersThreeIcon, XIcon } from "@phosphor-icons/react";
 
 
 export default function EventsScreen() {
@@ -63,9 +63,9 @@ export default function EventsScreen() {
         <>
           <MenuButton onClick={toggleSidebar}>
             {isSidebarOpen ? (
-              <X size={32} color="var(--black-100)" />
+              <XIcon size={32} color="var(--black-100)" />
             ) : (
-              <List size={32} color="var(--black-100)" />
+              <ListIcon size={32} color="var(--black-100)" />
             )}
           </MenuButton>
 
@@ -80,7 +80,7 @@ export default function EventsScreen() {
                       selected={selectedItem === "dashboard"}
                       onClick={() => handleSelect("dashboard")}
                     >
-                      <SquaresFour
+                      <SquaresFourIcon
                         size={18}
                         color={selectedItem === "dashboard" ? "#FFFFFF" : "#252525"}
                       />
@@ -91,7 +91,7 @@ export default function EventsScreen() {
                       selected={selectedItem === "event"}
                       onClick={() => handleSelect("event")}
                     >
-                      <Calendar
+                      <CalendarIcon
                         size={18}
                         color={selectedItem === "event" ? "#FFFFFF" : "#252525"}
                       />
@@ -102,22 +102,22 @@ export default function EventsScreen() {
                       selected={selectedItem === "equipes"}
                       onClick={() => handleSelect("equipes")}
                     >
-                      <UsersThree
+                      <UsersThreeIcon
                         size={18}
                         color={selectedItem === "equipes" ? "#fff" : "#252525"}
                       />
-                      <Link href="/squad">Equipes</Link>
+                      <Link href="/teams">Equipes</Link>
                     </NavItemModal>
 
                     <NavItemModal
                       selected={selectedItem === "inscricoes"}
                       onClick={() => handleSelect("inscricoes")}
                     >
-                      <Users
+                      <UsersIcon
                         size={18}
                         color={selectedItem === "inscricoes" ? "#fff" : "#252525"}
                       />
-                      <Link href="/inscricoes">Inscrições</Link>
+                      <Link href="/registration">Inscrições</Link>
                     </NavItemModal>
                   </nav>
 
@@ -139,7 +139,7 @@ export default function EventsScreen() {
 
                   <div className="footer-actions">
                     <div className="footer-action-item">
-                      <User size={16} />
+                      <UserIcon size={16} />
                       <span>Alterar dados</span>
                     </div>
                     <div
@@ -152,7 +152,7 @@ export default function EventsScreen() {
                       }}
                       style={{ cursor: "pointer" }}
                     >
-                      <Power size={16} />
+                      <PowerIcon size={16} />
                       <span>Sair</span>
                     </div>
                   </div>

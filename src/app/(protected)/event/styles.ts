@@ -60,6 +60,11 @@ export const MenuButton = styled.button`
   border: none;
   cursor: pointer;
   z-index: 1002;
+
+  @media (max-width: 768px) {
+    left: auto;
+    right: 1rem;
+  } 
 `;
 
 export const SidebarOverlay = styled.div`
